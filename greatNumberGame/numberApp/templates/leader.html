@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+</head>
+
+<body>
+    <h1>Leaderboard</h1>
+    <a href='/clear'>Play again!</a>
+    <div>
+        <img src="/static/trophy.png">
+
+        <!-- #If they win, allow the user to submit their name. Have a link to a leaderboard page that shows winners' names and how many attempts they took to guess correctly. -->
+        <table>
+            <tr>
+                <td class="header">Name</td>
+                <td class="header"># of Attempts</td>
+            </tr>
+
+            {% for i in request.session.players %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.num}}</td>
+            </tr>
+            {% endfor %}
+        </table><br>
+
+
+    </div>
+    
+</body>
+
+</html>
